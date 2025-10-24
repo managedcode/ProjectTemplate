@@ -12,6 +12,8 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -59,6 +61,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
 
     outputs:
       published: ${{ steps.publish.outputs.published }}
@@ -122,6 +126,8 @@ jobs:
     needs: publish-nuget
     runs-on: ubuntu-latest
     if: needs.publish-nuget.outputs.published == 'true'
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
