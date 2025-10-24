@@ -46,8 +46,8 @@ ProjectTemplate/
 
 2. Clone the repository:
    ```bash
-   git clone https://github.com/managedcode/ProjectTemplate.git
-   cd ProjectTemplate
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
    ```
 
 3. Restore dependencies:
@@ -159,8 +159,12 @@ Update this version to release new versions to NuGet.
 
 To enable the full CI/CD pipeline, configure these secrets in your GitHub repository:
 
-- `NUGET_API_KEY` - API key for publishing to NuGet.org
-- `CODECOV_TOKEN` - Token for uploading coverage to Codecov (optional)
+> **Note:** These secrets are only required if you want to publish NuGet packages or track code coverage. The CI workflow will work without them for development and testing purposes.
+
+- `NUGET_API_KEY` - API key for publishing to NuGet.org (required only for publishing packages)
+  - Get your API key from [NuGet.org](https://www.nuget.org/account/apikeys)
+- `CODECOV_TOKEN` - Token for uploading coverage to Codecov (optional, for coverage tracking)
+  - Get your token from [Codecov](https://codecov.io/) after connecting your repository
 
 ## Technologies
 
